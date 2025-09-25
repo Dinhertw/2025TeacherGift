@@ -203,32 +203,41 @@ button:hover {
         updateImage();
     }
 
-    function showMessage(buttonNumber) {
-        let text = "";
-        switch(buttonNumber) {
-            case 1:
-                text = "內容1";
-                break;
-            case 2:
-                text = "感謝您帶我們去創造力競賽，並於平常訓練我們的專業能力，未來會繼續努力，祝您教師節快樂！";
-                break;
-            case 3:
-                text = "感謝小茗老師帶我們參加創造力競賽，感謝您抽空教我們焊接還有程，在未來我會更努力練習學習，老師您辛苦了，教師節快樂";
-                break;
-            case 4:
-                text = "感謝多年教育之思，盡責指導，用心授業，傳授經驗，將「師說」之傳道、授業、解惑也，很好的做到。並從旁協助。在此感謝貴師。 -Qimei TECH";
-                break;
-            default:
-                text = "未知的按鈕。";
-        }
+function showMessage(buttonNumber) {
+    let text = "";
+    let title = "";
 
-        Swal.fire({
-            title: '留言',
-            text: text,
-            confirmButtonText: '關閉',
-            confirmButtonColor: '#ff74a2'
-        });
+    switch(buttonNumber) {
+        case 1:
+            title = "鈞彗";
+            text = "內容1";
+            break;
+        case 2:
+            title = "定禾";
+            text = "感謝您帶我們去創造力競賽，並於平常訓練我們的專業能力，未來會繼續努力，祝您教師節快樂！";
+            break;
+        case 3:
+            title = "東珉";
+            text = "感謝小茗老師帶我們參加創造力競賽，感謝您抽空教我們焊接還有程，在未來我會更努力練習學習，老師您辛苦了，教師節快樂";
+            break;
+        case 4:
+            title = "芃睿";
+            text = "感謝多年教育之思，盡責指導，用心授業，傳授經驗，將「師說」之傳道、授業、解惑也，很好的做到。並從旁協助。在此感謝貴師。 -Qimei TECH";
+            break;
+        default:
+            title = "未知";
+            text = "未知的按鈕。";
     }
+
+    Swal.fire({
+        title: title + " 的留言",
+        text: text,
+        confirmButtonText: '關閉',
+        confirmButtonColor: '#ff74a2'
+    });
+}
+
+    
 </script>
 </body>
 </html>
