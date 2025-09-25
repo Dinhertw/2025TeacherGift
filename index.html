@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh"></html>
+<head>
+    <title>一份教師節禮物</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 72px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #f583a5;
+            text-align: center;
+            font-size: 64px;
+        }
+
+        h4 {
+            text-align: center;
+            font-weight: normal;
+            color: #7f8c8d;
+        }
+
+        h2, h3 {
+            color: #ff74a2;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #f0fc8b;
+            color: rgb(255, 167, 243);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 24px;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #1abc9c;
+        }
+
+        #imageGallery img {
+            max-width: 80%;
+            height: auto;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .view-memory-btn {
+            margin: 0 auto;
+            display: block;
+            font-size: 32px;
+            padding: 15px 30px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .button-container button {
+            width: 120px;
+            margin: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .footer {
+            margin-top: 40px;
+        }
+        #imageGallery {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #imageContainer {
+            text-align: center;
+        }
+
+        #image img {
+            max-width: 80%;
+            height: auto;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>老師教師節快樂</h1>
+        <button class="view-memory-btn" onclick="showGallery()">查看回憶</button>
+    </div>
+    <div class="button-container footer">
+        <button onclick="showMessage(1)">BY鈞彗</button>
+        <button onclick="showMessage(2)">BY定禾</button>
+        <button onclick="showMessage(3)">BY東珉</button>
+        <button onclick="showMessage(4)">BY芃睿</button>
+    </div>
+
+<div id="messageBox"></div>
+
+    <div id="imageGallery">
+        <h2>台師大回顧</h2>
+        <div id="imageContainer">
+
+        </div>
+    </div>
+
+    <script>
+        // 圖片
+        const imageUrls = [
+            "圖片",
+            "圖片",
+            "圖片",
+            "圖片",
+            "圖片",
+            "圖片",
+            "圖片",
+            "圖片",
+            "圖片",
+            "圖片",
+            "圖片"
+        ];
+
+        let currentImageIndex = 0;
+
+        function showGallery() {
+            const gallery = document.getElementById("imageGallery");
+            const imageContainer = document.getElementById("imageContainer");
+            imageContainer.innerHTML = '';
+            imageContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="台師大回顧" onclick="nextImage()">`;
+            gallery.style.display = 'block';
+        }
+
+        function nextImage() {
+            currentImageIndex++;
+            if (currentImageIndex >= imageUrls.length) {
+                currentImageIndex = 0; 
+            }
+            const imageContainer = document.getElementById("imageContainer");
+            imageContainer.innerHTML = `<img src="${imageUrls[currentImageIndex]}" alt="台師大回顧" onclick="nextImage()">`;
+        }
+        function showMessage(buttonNumber) {
+            const messageBox = document.getElementById("messageBox");
+
+            switch(buttonNumber) {
+                case 1:
+                    messageBox.innerHTML = "內容1";
+                    break;
+                case 2:
+                    messageBox.innerHTML = "內容2";
+                    break;
+                case 3:
+                    messageBox.innerHTML = "感謝小茗老師帶我們參加創造力競賽,感謝您抽空教我們焊接還有程式,在未來我會更努力練習學習,老師您辛苦了,教師節快樂";
+                    break;
+                case 4:
+                    messageBox.innerHTML = "內容4";
+                    break;
+                default:
+                    messageBox.innerHTML = "未知的按鈕。";
+            }
+        }
+    </script>
+        
+</body>
