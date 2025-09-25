@@ -1,0 +1,86 @@
+<script>
+    // 圖片
+    const imageUrls = [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg",
+        "4.jpg",
+        "5.jpg",
+        "圖片",
+        "圖片",
+        "圖片",
+        "圖片",
+        "圖片",
+        "圖片"
+    ];
+
+    let currentImageIndex = 0;
+
+    function showGallery() {
+        Swal.fire({
+            title: '台師大回顧',
+            html: `
+                <div style="display:flex;flex-direction:column;align-items:center;">
+                    <img id="galleryImage" src="${imageUrls[currentImageIndex]}" 
+                         alt="回憶" style="max-width:90%;margin-bottom:15px;">
+                    <div style="display:flex;gap:15px;">
+                        <button onclick="prevImage()" class="swal2-confirm swal2-styled" style="background:#ffb6c1;">上一張</button>
+                        <button onclick="nextImage()" class="swal2-confirm swal2-styled" style="background:#ff74a2;">下一張</button>
+                    </div>
+                </div>
+            `,
+            showConfirmButton: false,
+            width: '80%'
+        });
+    }
+
+    function updateImage() {
+        const img = Swal.getHtmlContainer().querySelector("#galleryImage");
+        if (img) {
+            img.src = imageUrls[currentImageIndex];
+        }
+    }
+
+    function nextImage() {
+        currentImageIndex++;
+        if (currentImageIndex >= imageUrls.length) {
+            currentImageIndex = 0;
+        }
+        updateImage();
+    }
+
+    function prevImage() {
+        currentImageIndex--;
+        if (currentImageIndex < 0) {
+            currentImageIndex = imageUrls.length - 1;
+        }
+        updateImage();
+    }
+
+    function showMessage(buttonNumber) {
+        let text = "";
+        switch(buttonNumber) {
+            case 1:
+                text = "內容1";
+                break;
+            case 2:
+                text = "感謝您帶我們去創造力競賽，並於平常訓練我們的專業能力，未來會繼續努力，祝您教師節快樂！";
+                break;
+            case 3:
+                text = "感謝小茗老師帶我們參加創造力競賽，感謝您抽空教我們焊接還有程，在未來我會更努力練習學習，老師您辛苦了，教師節快樂";
+                break;
+            case 4:
+                text = "感謝多年教育之思，盡責指導，用心授業，傳授經驗，將「師說」之傳道、授業、解惑也，很好的做到。並從旁協助。在此感謝貴師。 -Qimei TECH";
+                break;
+            default:
+                text = "未知的按鈕。";
+        }
+
+        Swal.fire({
+            title: '留言',
+            text: text,
+            confirmButtonText: '關閉',
+            confirmButtonColor: '#ff74a2'
+        });
+    }
+</script>
