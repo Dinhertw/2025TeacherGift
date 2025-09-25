@@ -157,7 +157,7 @@ button:hover {
             html: `
                 <div style="display:flex;flex-direction:column;align-items:center;">
                     <img id="galleryImage" src="${imageUrls[currentImageIndex]}" 
-                         alt="回憶" style="max-width:93%;max-height:80%;margin-bottom:15px;border-radius:0.5em">
+                         alt="回憶" style="max-width:93%;max-height:70vh;margin-bottom:15px;border-radius:0.5em">
                     <div style="display:flex;gap:15px;flex-wrap:wrap;justify-content:center;">
                         <button onclick="prevImage()" class="gallery-btn prev-btn">⬅ 上一張</button>
                         <button onclick="nextImage()" class="gallery-btn next-btn">下一張 ➡</button>
@@ -169,8 +169,7 @@ button:hover {
             `,
             showConfirmButton: false,
             showCloseButton: true,
-            width: '95%',
-            heigh: '95vh'
+            width: '95%'
         });
     }
 
