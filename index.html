@@ -154,7 +154,8 @@ button:hover {
         <button onclick="showMessage(4)">BY芃睿</button>
     </div>
     <h3>計畫大成功！</h3>
-    <img src="end.jpg" alt="合照" style="max-width:93%;max-height:70vh;margin-bottom:15px;border-radius:0.5em">
+    <button class="view-memory-btn" onclick="showEnd()">查看照片</button>
+    
 <script>
     // 圖片
     const imageUrls = [
@@ -253,6 +254,20 @@ function showMessage(buttonNumber) {
     });
 }
 
+
+    function showEnd() {
+        Swal.fire({
+            title: '照片',
+            html: `
+                <img src="end.jpg" alt="" style="max-width:93%;max-height:70vh;margin-bottom:15px;border-radius:0.5em">
+                <img src="end1.jpg" alt="" style="max-width:93%;max-height:70vh;margin-bottom:15px;border-radius:0.5em">
+                <img src="end2.svg" alt="" style="max-width:93%;max-height:70vh;margin-bottom:15px;border-radius:0.5em">
+            `,
+            showConfirmButton: false,
+            showCloseButton: true,
+            width: '95%'
+        });
+    }
     
 </script>
 </body>
